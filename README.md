@@ -9,14 +9,15 @@
 | encrypted_password | string  | null: false               |
 | last_name          | string  | null: false               |
 | first_name         | string  | null: false               |
-| last_name(kana)    | string  | null: false               |
-| first_name(kana)   | string  | null: false               |
+| last_name_kana     | string  | null: false               |
+| first_name_kana    | string  | null: false               |
 | birthday           | date    | null: false               |
 
 ### Association
 
 - has_many :comments
 - has_many :items, through :comments
+- belongs_to :purchase_history
 
 ## itemsテーブル
 
@@ -35,23 +36,24 @@
 
 - has_many :comments
 - belongs_to :user, through :comments
+- belongs_to :purchase_history
 
 ## purchasesテーブル
 
-|    Column     |     Type      |   Options   |
-| ------------- | ------------- | ----------- |
-| deadline      | integer       | null: false |
-| sec_code      | integer       | null: false |
-| pos_code      | string        | null: false |
-| prefecture_id | integer       | null: false |
-| city          | text          | null: false |
-| numbering     | text, integer | null: false |
-| building      | text          |             |
-| tel_number    | string        | null: false |
+|       Column       |    Type    |   Options          |
+| ------------------ | ---------- | ------------------ |
+| pos_code           | string     | null: false        |
+| prefecture_id      | integer    | null: false        |
+| city               | string     | null: false        |
+| numbering          | string     | null: false        |
+| building           | string     |                    |
+| tel_number         | string     | null: false        |
+| purchase_histories | references | foreign_keys: true |
 
 ### Association
 
 - belongs_to :item
+- belongs_to :purchase_history
 
 ## purchase_historiesテーブル
 
@@ -63,6 +65,7 @@
 ### Association
 
 - belongs_to :user
+- belongs_to :item
 
 ## commentsテーブル
 
