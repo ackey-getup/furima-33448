@@ -17,7 +17,7 @@
 
 - has_many :comments
 - has_many :items, through :comments
-- belongs_to :purchase_history
+- has_many :purchase_history
 
 ## itemsテーブル
 
@@ -25,6 +25,7 @@
 | ----------- | ---------- | ------------------------------- |
 | title       | string     | null: false                     |
 | price       | integer    | null: false                     |
+| explanation | text       | null: false                     |
 | user        | references | null: false, foreign_keys: true |
 | category_id | integer    | null: false                     |
 | status_id   | integer    | null: false                     |
@@ -36,7 +37,7 @@
 
 - has_many :comments
 - belongs_to :user, through :comments
-- belongs_to :purchase_history
+- has_one :purchase_history
 
 ## purchasesテーブル
 
@@ -52,7 +53,6 @@
 
 ### Association
 
-- belongs_to :item
 - belongs_to :purchase_history
 
 ## purchase_historiesテーブル
@@ -66,6 +66,7 @@
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :purchase
 
 ## commentsテーブル
 
