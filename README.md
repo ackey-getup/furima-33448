@@ -44,7 +44,7 @@
 |       Column     |    Type    |   Options          |
 | ---------------- | ---------- | ------------------ |
 | pos_code         | string     | null: false        |
-| prefecture_id    | integer    | null: false        |
+| region_id        | integer    | null: false        |
 | city             | string     | null: false        |
 | numbering        | string     | null: false        |
 | building         | string     |                    |
