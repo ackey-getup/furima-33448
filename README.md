@@ -17,7 +17,7 @@
 
 - has_many :comments
 - has_many :items, through :comments
-- has_many :purchase_history
+- has_many :purchase_histories
 
 ## itemsテーブル
 
@@ -35,21 +35,21 @@
 
 ### Association
 
-- has_many :comments
+- has_many   :comments
 - belongs_to :user, through :comments
-- has_one :purchase_history
+- has_one    :purchase_history
 
 ## purchasesテーブル
 
-|       Column       |    Type    |   Options          |
-| ------------------ | ---------- | ------------------ |
-| pos_code           | string     | null: false        |
-| prefecture_id      | integer    | null: false        |
-| city               | string     | null: false        |
-| numbering          | string     | null: false        |
-| building           | string     |                    |
-| tel_number         | string     | null: false        |
-| purchase_histories | references | foreign_keys: true |
+|       Column     |    Type    |   Options          |
+| ---------------- | ---------- | ------------------ |
+| pos_code         | string     | null: false        |
+| prefecture_id    | integer    | null: false        |
+| city             | string     | null: false        |
+| numbering        | string     | null: false        |
+| building         | string     |                    |
+| tel_number       | string     | null: false        |
+| purchase_history | references | foreign_keys: true |
 
 ### Association
 
@@ -66,7 +66,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :purchase
+- has_one    :purchase
 
 ## commentsテーブル
 
