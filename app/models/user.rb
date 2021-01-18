@@ -13,10 +13,10 @@ class User < ApplicationRecord
   end
 
   with_options presence: true, format: {with: /\A[ァ-ヶ]+\z/, message: 'カタカナで入力してください' } do
-    validates :last_name_kana,  presence: true
-    validates :first_name_kana, presence: true
+    validates :last_name_kana
+    validates :first_name_kana
   end
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-    validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて6文字以上で設定してください' 
+    validates_format_of :password, with: PASSWORD_REGEX, message: 'には半角英数字の両方を含めて6文字以上で設定してください' 
 end
