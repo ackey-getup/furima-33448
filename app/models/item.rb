@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :image 
     validates :title 
-    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "価格は半角数字で¥300~¥9,999,999の間で入力してください" }
+    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "価格は半角数字で¥300~¥9,999,999の間で入力してください", with: /\A[0-9]+\z/ }
     validates :explanation
   end
 

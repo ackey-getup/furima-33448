@@ -130,6 +130,11 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Status 選択してください")
       end
 
+      it 'priceが¥299の場合出品できない' do
+        @item.price = '299'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price 価格は半角数字で¥300~¥9,999,999の間で入力してください")
+      end
     end
   end
 end
