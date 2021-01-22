@@ -49,10 +49,10 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in? 
+    if user_signed_in? && current_user.id == @item.user_id
+      render :edit
+    else
       redirect_to new_user_session_path
-    else current_user.id == @item.user_id
-      redirect_to action: :index
     end
   end
 end
