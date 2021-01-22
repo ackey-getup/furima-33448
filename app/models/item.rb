@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :explanation
   end
 
-  with_options numericality: { other_than: 1, message: '選択してください' } do 
+  with_options numericality: { other_than: 1, message: 'を選択してください' } do 
     validates :category_id
     validates :status_id
     validates :delivery_id
