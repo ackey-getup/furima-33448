@@ -24,3 +24,10 @@ ja:
         delivery_id: 配送料の負担
         region_id: 発送元の地域
         mean_id: 発送までの日数
+      purchase:
+        token: クレジットカード情報
+        pos_code: 郵便番号
+        region_id: 都道府県
+        city: 市区町村
+        numbering: 番地
+        tel_number: 電話番号
