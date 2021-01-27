@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items, dependent: :destroy
+  has_many :purchase_histories
  
   validates :nickname, presence: true
   validates :birthday, presence: true

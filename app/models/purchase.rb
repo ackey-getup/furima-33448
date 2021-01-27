@@ -1,4 +1,6 @@
 class Purchase < ApplicationRecord
+  belongs_to :purchase_histories
+
   attr_accessor :token
   validates :token, presence: true
   
