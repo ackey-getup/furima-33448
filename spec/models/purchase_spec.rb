@@ -27,6 +27,12 @@ RSpec.describe Purchase, type: :model do
     expect(@purchase.errors.full_messages).to include("郵便番号は半角数字で-(ハイフン)を含めて入力してください")
   end
 
+  it "郵便番号が全角数字の場合登録できない" do
+    @purchase.pos_code = "１２３−４５６７"
+    @purchase.valid?
+    expect(@purchase.errors.full_messages).to include("郵便番号は半角数字で-(ハイフン)を含めて入力してください")
+  end
+
   it "都道府県が空では登録できない" do
     @purchase.region_id = nil
     @purchase.valid?
