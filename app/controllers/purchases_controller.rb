@@ -10,8 +10,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
-    @purchase = Purchase.create(purchase_params)
+    @purchase = Order.new(purchase_params)
     if @purchase.valid?
       pay_item
       @purchase.save
@@ -24,7 +23,8 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.permit(:pos_code, :region_id, :city, :numbering, :building, :tel_number).merge(token: params[:token])
+    @item = Item.find(params[:item_id])
+    params.permit(:pos_code, :region_id, :city, :numbering, :building, :tel_number).merge(token: params[:token], user_id: current_user.id, item_id: @item.id)
   end
 
   def pay_item
@@ -35,5 +35,4 @@ class PurchasesController < ApplicationController
       currency: 'jpy'                   # 通貨の種類（日本円）
     )
   end
-
 end

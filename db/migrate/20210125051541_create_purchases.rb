@@ -7,8 +7,8 @@ class CreatePurchases < ActiveRecord::Migration[6.0]
       t.string     :numbering,  null: false
       t.string     :building
       t.string     :tel_number, null: false
-      t.references :purchase_histories, null: false, foreign_keys: true
+      t.references :purchase_history, null: false, foreign_keys: true
       t.timestamps
-    end
+    end 
   end
 end
