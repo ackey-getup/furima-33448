@@ -1,8 +1,12 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
 
   def index
     @item = Item.find(params[:item_id])
     @purchase = Purchase.new
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
   end
 
   def create
@@ -26,9 +30,10 @@ class PurchasesController < ApplicationController
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']  # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
-      amount: @item.price,  # 商品の値段
+      amount: @item.price,              # 商品の値段
       card: purchase_params[:token],    # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      currency: 'jpy'                   # 通貨の種類（日本円）
     )
   end
+
 end

@@ -7,6 +7,6 @@ class Purchase < ApplicationRecord
     validates :region_id
     validates :city
     validates :numbering
-    validates :tel_number, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は半角数字で入力してください", maxlength: 11 }
+    validates :tel_number, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は半角数字で入力してください"}
   end
 end
