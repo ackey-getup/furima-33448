@@ -13,7 +13,6 @@ class Order #FormObject
 
   def save
     @purchase = PurchaseHistory.create(user_id: user_id, item_id: item_id)
-    binding.pry
     Purchase.create(pos_code: pos_code, region_id: region_id, city: city, numbering: numbering, building: building, tel_number: tel_number, purchase_history_id: @purchase.id)
   end
 end
