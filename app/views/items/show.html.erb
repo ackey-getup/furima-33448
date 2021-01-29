@@ -85,7 +85,8 @@
   <%# /商品の概要 %>
 
   <div class="comment-box">
-    <form>
+    <% if user_signed_in? && @item.purchase_history.nil? %>
+    <%#= form_with(model: [@item, @comment], local: true) do |f| %>
       <textarea class="comment-text"></textarea>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
@@ -97,6 +98,7 @@
         <span>コメントする<span>
       </button>
     </form>
+    <% end %>
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">
