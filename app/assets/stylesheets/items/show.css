@@ -189,6 +189,26 @@
   border: none;
 }
 
+.comments{
+  font-size: 30px;
+  border-bottom: 1px solid red;
+  margin-top: 10px;
+}
+
+.comment-room{
+  background-color: lightblue;
+  width: 40vw;
+  margin-top: 10px;
+}
+
+.comments-list{
+  font-size: 18px;
+}
+
+.comment-created-at{
+  font-size: 12px;
+}
+
 .links {
   display: flex;
   justify-content: space-between;

@@ -84,12 +84,16 @@
   </div>
   <%# /商品の概要 %>
 
-  <% @comments.each do |comment| %>
-    <li class="comments_list">
-      <%= comment.text %>
-      <%= link_to comment.user.nickname, root_path, class: :comment_user %>
-    </li>
-  <% end %>
+  <p class="comments">コメント一覧</p>
+  <div class="comment-room">
+    <% @comments.each do |comment| %>
+      <li class="comments-list">
+        <%= comment.text %>
+        <%= link_to comment.user.nickname, root_path, class: :comment_user %>
+        <div class="comment-created-at"><%= comment.created_at %></div>
+      </li>
+    <% end %>
+  </div>
 
   <div class="comment-box">
   <% if user_signed_in? && @item.purchase_history.nil? %>
