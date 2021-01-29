@@ -90,7 +90,7 @@
       <li class="comments-list">
         <%= comment.text %>
         <%= link_to comment.user.nickname, root_path, class: :comment_user %>
-        <div class="comment-created-at"><%= comment.created_at %></div>
+        <div class="comment-created-at"><%= l comment.created_at, format: :short %></div>
       </li>
     <% end %>
   </div>
