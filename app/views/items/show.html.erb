@@ -88,8 +88,8 @@
   <div class="comment-room">
     <% @comments.each do |comment| %>
       <li class="comments-list">
-        <%= comment.text %>
         <%= link_to comment.user.nickname, root_path, class: :comment_user %>
+        <%= comment.text %>
         <div class="comment-created-at"><%= l comment.created_at, format: :short %></div>
       </li>
     <% end %>
