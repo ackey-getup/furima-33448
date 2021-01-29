@@ -74,7 +74,7 @@
 | ------ | ---------- | ------------------------------- |
 | text   | text       | null: false                     |
 | user   | references | null: false, foreign_keys: true |
-| items  | references | null: false, foreign_keys: true |
+| item  | references | null: false, foreign_keys: true |
 
 ### Association
 
