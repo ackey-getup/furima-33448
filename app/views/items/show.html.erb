@@ -84,9 +84,16 @@
   </div>
   <%# /商品の概要 %>
 
+    <% @comments.each do |comment| %>
+    <li class="comments_list">
+      <%= comment.text %>
+      <%= link_to comment.user.nickname, root_path, class: :comment_user %>
+    </li>
+  <% end %>
+
   <div class="comment-box">
     <% if user_signed_in? && @item.purchase_history.nil? %>
-    <%#= form_with(model: [@item, @comment], local: true) do |f| %>
+    <form>
       <textarea class="comment-text"></textarea>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
