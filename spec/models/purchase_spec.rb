@@ -49,6 +49,12 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase.errors.full_messages).to include("都道府県を入力してください")
       end
 
+      it "都道府県が未選択だと購入できない" do
+        @purchase.region_id = 1
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("都道府県を選択してください")
+      end
+
       it "市区町村が空では購入できない" do
         @purchase.city = nil
         @purchase.valid?
@@ -71,6 +77,18 @@ RSpec.describe Purchase, type: :model do
         @purchase.tel_number = "０９０１２３４５６７８"
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include("電話番号は半角数字で入力してください")
+      end
+
+      it "電話番号が数字のみでないと購入できない" do
+        @purchase.tel_number = "abc12345678"
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include()
+      end
+
+      it "電話番号が11桁以内でないと購入できない" do
+        @purchase.tel_number = "090123456789"
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include()
       end
 
       it "user_idが空だと購入できない" do
