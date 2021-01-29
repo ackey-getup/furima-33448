@@ -9,6 +9,8 @@ class Order #FormObject
     validates :city
     validates :numbering
     validates :tel_number, format: { with: /\A[a-zA-Z0-9]+\z/, message: "は半角数字で入力してください"}
+    validates :user_id
+    validates :item_id
   end
 
   def save

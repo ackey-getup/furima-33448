@@ -67,5 +67,17 @@ RSpec.describe Purchase, type: :model do
     @purchase.valid?
     expect(@purchase.errors.full_messages).to include("電話番号は半角数字で入力してください")
   end
+
+  it "user_idが空だと購入できない" do
+    @purchase.user_id = nil
+    @purchase.valid?
+    expect(@purchase.errors.full_messages).to include("Userを入力してください")
+  end
+
+  it "item_idが空だと購入できない" do
+    @purchase.item_id = nil
+    @purchase.valid?
+    expect(@purchase.errors.full_messages).to include("Itemを入力してください")
+  end
 end
   

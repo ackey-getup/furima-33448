@@ -7,5 +7,7 @@ FactoryBot.define do
     numbering  {Faker::Address.street_address}
     building   {"ABC Building"}
     tel_number {Faker::Number.leading_zero_number(digits: 11)}
+    user_id    {1}
+    item_id    {1}
   end
 end
