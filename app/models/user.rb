@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
   has_many :purchase_history
+  has_many :comments, dependent: :destroy
  
   validates :nickname, presence: true
   validates :birthday, presence: true

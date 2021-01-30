@@ -35,3 +35,7 @@ ja:
         city: 市区町村
         numbering: 番地
         tel_number: 電話番号
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%m/%d %H:%M"
