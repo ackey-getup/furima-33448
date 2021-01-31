@@ -47,7 +47,7 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.user.nickname %></td>
+          <td class="detail-value"><%= link_to @item.user.nickname, user_path(@item.user_id) %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
@@ -88,7 +88,7 @@
   <div class="comment-room", id="commentid">
     <% @comments.each do |comment| %>
       <li class="comments-list">
-        <%= link_to comment.user.nickname, root_path, class: :comment_user %>
+        <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %>
         <%= comment.text %>
         <div class="comment-created-at"><%= l comment.created_at, format: :short %></div>
       </li>
