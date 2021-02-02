@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      ActionCable.server.broadcast 'comment_channel', content: @comment
+      ActionCable.server.broadcast 'comment_channel', {content: @comment, user: @comment.user, time: @comment.created_at.strftime("%m/%d %H:%M")}
     else
       @item = @comment.item
       @comments = @item.comments
