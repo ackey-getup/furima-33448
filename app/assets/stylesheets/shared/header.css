@@ -54,6 +54,10 @@
   padding: 1vh 0;
 }
 
+.hidden{
+  display: none;
+}
+
 .lists-left {
   display: flex;
   min-width: 200px;
@@ -64,6 +68,15 @@
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
+}
+
+.category-lists{
+
+}
+
+.pull-down-category{
+  padding: 15px 35px 15px 15px;
+  border: 1px solid #eee;
 }
 
 .brand-list {
