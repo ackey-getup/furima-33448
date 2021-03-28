@@ -8,7 +8,6 @@ consumer.subscriptions.create("CommentChannel", {
   },
 
   received(data) {
-    console.log(data)
     const userComment = `<li class="comments-list">
                     <a href="/users/${(data.content.user_id)}">${data.user.nickname}</a>
                     ${data.content.text}
